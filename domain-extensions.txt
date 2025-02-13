@@ -1,0 +1,1 @@
+[".com", ".net", ".id", ".org", ".xyz", ".biz", ".info", ".cloud", ".co", ".edu", ".me", ".online", ".dev", ".io"]
