@@ -1,0 +1,26 @@
+## Generate File Update
+1. Buat release pada github.com
+2. Pada github desktop klik tombol pull from origin, proses ini akan menyimpan data release update yang telah dibuat pada github.com
+3. Jalankan file git-version-diff.bat
+4. Copy file yang terbentuk ke folder update. File ini berisi file yang berubah.
+5. Copy update database ke folder update/database
+
+## Alur update aplikasi
+1. File builtin/js/site.js
+- Dengan ajax, cek apakah status browser online, jika ya maka secara berkala jalankan url update-app/ajaxCheckAppUpdate?online=Y. Url ini akan melakukan pengecekan pada database tabel setting bagian versi.
+- Jika terdapat update maka muncul tombol update pada header.
+2. app\Controllers\MasterController.php
+- Method checkAppUpdate() Method ini akan mengakses file misc/product-versions.txt yang ada pada github.com untuk mengecek apakah ada update aplikasi.
+- Padal jagowebdev.com/backend ketika kita sumbit versi baru maka file product-version.txt yang ada pada github.com akan ikut terupdate
+3. File app\Model\UpdateAppModel.php
+- Sistem akan mengecek file yang ada pada folder update, jika ada nama file dengan versi >= versi yang ada di database maka tambahkan nama nama file yang ada di file tersebut dari file zip ke file aplikasi yang terinstall
+- Selanjutnya sistem akan menjalankan file database yang ada pada folder update/database/database.php
+
+## File yang berubah
+app\Controllers\MasterController.php
+app\Models\BaseModel.php
+app\Controllers\Update_app.php
+app\Models\UpdateAppModel.php
+app\Views\themes\modern\update-app-form.php
+app\Helpers\util_helper.php
+app\Views\themes\modern\footer.php --> Tambahkan javascript app_version dan list_update di file footer.php
