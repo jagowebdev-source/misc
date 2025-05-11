@@ -2,7 +2,7 @@
 1. Buat release pada github.com
 2. Pada github desktop klik tombol pull from origin, proses ini akan menyimpan data release update yang telah dibuat pada github.com
 3. Jalankan file git-version-diff.bat
-4. Copy file yang terbentuk ke folder update. File ini berisi file yang berubah.
+4. Copy file yang terbentuk ke folder update/versions. File ini berisi file yang berubah.
 5. Copy update database ke folder update/database
 
 ## Alur update aplikasi
